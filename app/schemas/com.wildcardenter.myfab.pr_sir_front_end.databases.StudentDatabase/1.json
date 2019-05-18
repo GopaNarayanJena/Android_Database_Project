@@ -1,0 +1,194 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "c6ecd1502829de08036e72975d02630a",
+    "entities": [
+      {
+        "tableName": "STUDENT",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`regno` TEXT NOT NULL, `name` TEXT NOT NULL, `major` TEXT NOT NULL, `bdate` INTEGER NOT NULL, PRIMARY KEY(`regno`))",
+        "fields": [
+          {
+            "fieldPath": "regno",
+            "columnName": "regno",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "major",
+            "columnName": "major",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bdate",
+            "columnName": "bdate",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "regno"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "COURSE",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`course` INTEGER NOT NULL, `cname` TEXT NOT NULL, `dept` TEXT NOT NULL, PRIMARY KEY(`course`))",
+        "fields": [
+          {
+            "fieldPath": "course",
+            "columnName": "course",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cname",
+            "columnName": "cname",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dept",
+            "columnName": "dept",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "course"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "ENROLL",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`regno` TEXT NOT NULL, `course` INTEGER NOT NULL, `sem` INTEGER NOT NULL, `marks` INTEGER NOT NULL, PRIMARY KEY(`regno`, `course`))",
+        "fields": [
+          {
+            "fieldPath": "regno",
+            "columnName": "regno",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "course",
+            "columnName": "course",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sem",
+            "columnName": "sem",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "marks",
+            "columnName": "marks",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "regno",
+            "course"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "BOOK_ADAPTATION",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`course` INTEGER NOT NULL, `sem` INTEGER NOT NULL, `book_isbn` INTEGER NOT NULL, PRIMARY KEY(`course`, `sem`))",
+        "fields": [
+          {
+            "fieldPath": "course",
+            "columnName": "course",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sem",
+            "columnName": "sem",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "book_isbn",
+            "columnName": "book_isbn",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "course",
+            "sem"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "TEXT",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`book_isbn` INTEGER NOT NULL, `book_title` TEXT NOT NULL, `publisher` TEXT NOT NULL, `author` TEXT NOT NULL, PRIMARY KEY(`book_isbn`))",
+        "fields": [
+          {
+            "fieldPath": "book_isbn",
+            "columnName": "book_isbn",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "book_title",
+            "columnName": "book_title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "publisher",
+            "columnName": "publisher",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "author",
+            "columnName": "author",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "book_isbn"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"c6ecd1502829de08036e72975d02630a\")"
+    ]
+  }
+}

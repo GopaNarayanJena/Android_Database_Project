@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">DBMS Project</string>
+    <string name="student_name">Student Name :</string>
+    <string name="birthday">Birthday :</string>
+    <string name="major">Major :</string>
+    <string name="registration_number">Registration number :</string>
+    <string name="Drawer_Opened">Drawer opened</string>
+    <string name="Drawer_Closed">Drawer Closed</string>
+    <string name="createTableQuery">\n\nCREATE TABLE IF NOT EXISTS `STUDENT` (`regno` TEXT NOT NULL,
+        `name` TEXT NOT NULL, `major` TEXT NOT NULL, `bdate` INTEGER NOT NULL, PRIMARY KEY(`regno`))\n\n
+    CREATE TABLE IF NOT EXISTS `COURSE` (`course` INTEGER NOT NULL,
+        `cname` TEXT NOT NULL, `dept` TEXT NOT NULL, PRIMARY KEY(`course`))\n\n
+    CREATE TABLE IF NOT EXISTS `ENROLL` (`regno` TEXT NOT NULL,
+        `course` INTEGER NOT NULL, `sem` INTEGER NOT NULL, `marks` INTEGER NOT NULL, PRIMARY KEY(`regno`, `course`, `sem`))\n\n
+    CREATE TABLE IF NOT EXISTS `BOOK_ADAPTATION` (`course` INTEGER NOT NULL,
+        `sem` INTEGER NOT NULL, `book_isbn` INTEGER NOT NULL, PRIMARY KEY(`course`, `sem`),
+        FOREIGN KEY(`book_isbn`) REFERENCES `TEXT`(`book_isbn`) ON UPDATE CASCADE ON DELETE NO ACTION )\n\n
+    CREATE TABLE IF NOT EXISTS `TEXT` (`book_isbn` INTEGER NOT NULL,
+        `book_title` TEXT NOT NULL, `publisher` TEXT NOT NULL, `author` TEXT NOT NULL, PRIMARY KEY(`book_isbn`))\n\n</string>
+    <string name="insertIntoQuery">\n\nINSERT OR REPLACE INTO `STUDENT`(`regno`,`name`,`major`,`bdate`) VALUES (?,?,?,?)\n\n
+    INSERT OR REPLACE INTO `COURSE`(`course`,`cname`,`dept`) VALUES (?,?,?)\n\n
+    INSERT OR REPLACE INTO `ENROLL`(`regno`,`course`,`sem`,`marks`) VALUES (?,?,?,?)\n\n
+    INSERT OR REPLACE INTO `ENROLL`(`regno`,`course`,`sem`,`marks`) VALUES (?,?,?,?)\n\n
+    INSERT OR REPLACE INTO `BOOK_ADAPTATION`(`course`,`sem`,`book_isbn`) VALUES (?,?,?)\n\n
+    INSERT OR REPLACE INTO `TEXT`(`book_isbn`,`book_title`,`publisher`,`author`) VALUES (?,?,?,?)\n\n</string>
+
+    <string name="QuestionNo4Query">\n\nSELECT course,book_isbn,book_title FROM text NATURAL JOIN
+        course NATURAL JOIN book_adaptation WHERE course IN (SELECT course FROM text NATURAL JOIN course
+        NATURAL JOIN book_adaptation WHERE dept LIKE \'cse\' GROUP BY course HAVING COUNT(course)>2)
+        order by book_title\n\n</string>
+
+    <string name="Question5Query">\n\nSELECT dept FROM course NATURAL JOIN book_adaptation NATURAL JOIN text WHERE publisher LIKE ?
+        EXCEPT SELECT dept FROM course NATURAL JOIN book_adaptation NATURAL JOIN text WHERE publisher NOT LIKE ?\n</string>
+
+
+</resources>

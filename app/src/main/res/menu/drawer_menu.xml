@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Show Tables">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/showAllStudentAct"
+                    android:title="Show All Students"
+                    android:icon="@drawable/ic_people_black_24dp"/>
+                <item
+                    android:id="@+id/showAllCourseAct"
+                    android:title="Show All Courses"
+                    android:icon="@drawable/ic_document"
+                    />
+                <item
+                    android:id="@+id/showAllEnrollAct"
+                    android:title="Show All Enroll"
+                    android:icon="@drawable/ic_bookmark"/>
+                <item
+                    android:id="@+id/showAllBookAdpAct"
+                    android:title="Show All Book Adoption"
+                    android:icon="@drawable/ic_broken_link"/>
+                <item
+                    android:id="@+id/showAllTextAct"
+                    android:title="Show All Text Book"
+                    android:icon="@drawable/ic_book_black_24dp"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Specialized Query">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/showAllBookByCs"
+                    android:icon="@drawable/ic_star_black_24dp"
+                    android:title="Show all book by cs dept >2" />
+                <item
+                    android:id="@+id/showByDept"
+                    android:icon="@drawable/ic_star_black_24dp"
+                    android:title="Show Dept By Publisher" />
+            </group>
+        </menu>
+    </item>
+
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/showAbout"
+                    android:icon="@drawable/ic_user"
+                    android:title="About Us" />
+                <item
+                    android:id="@+id/exit"
+                    android:icon="@drawable/ic_exit_to_app_black_24dp"
+                    android:title="Exit App" />
+            </group>
+
+
+</menu>

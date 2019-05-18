@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wildcardenter.myfab.pr_sir_front_end">
+
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="false"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activities.AboutUsActivity" android:theme="@style/MyAppTheme2">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.SplashActivity"
+            android:theme="@style/MyAppTheme1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.BookByCsCourseActivity"
+            android:label="Books Offered By CSE" />
+        <activity android:name=".activities.DeptByPublisherActivity" />
+        <activity
+            android:name=".activities.EditAdaptActivity"
+            android:label="Insert Book Adoption" />
+        <activity
+            android:name=".activities.ShowAdaptionActivity"
+            android:label="All Book Adoption" />
+        <activity
+            android:name=".activities.EditTextActivity"
+            android:label="Insert Text" />
+        <activity
+            android:name=".activities.ShowTextActivity"
+            android:label="All Text Books" />
+        <activity
+            android:name=".activities.EditEnrollActivity"
+            android:label="Insert Enroll" />
+        <activity
+            android:name=".activities.ShowEnrollActivity"
+            android:label="All Enrollments" />
+        <activity
+            android:name=".activities.LandingActivity"
+            android:theme="@style/MyAppTheme"/>
+        <activity
+            android:name=".activities.CourseEditActivity"
+            android:label="Insert Course" />
+        <activity
+            android:name=".activities.ShowCourseActivity"
+            android:label="All Courses" />
+        <activity
+            android:name=".activities.StudentEditActivity"
+            android:label="Insert Student" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="All Students" />
+    </application>
+
+</manifest>
